@@ -55,10 +55,10 @@
         </div>
     </div>
 </div>
-
+<c:set var="menu" value="pic" scope="request" />
 <script type="text/javascript">
     $(function () {
-        $("#picture-li").addClass("active");
+        //$("#picture-li").addClass("active");
         $('.pic-group').colorbox({maxWidth:'80%',maxHeight:'80%'});
     });
     function delData(id) {

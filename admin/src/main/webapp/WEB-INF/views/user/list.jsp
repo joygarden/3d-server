@@ -67,12 +67,11 @@
         </div>
     </div>
 </div>
-
-
+<c:set var="menu" value="user" scope="request" />
 <script type="text/javascript">
-    $(function () {
-        $("#user-li").addClass("active");
-    });
+//    $(function () {
+//        $("#user-li").addClass("active");
+//    });
     function delData(id) {
         $('#hidden-form').find('input[name="id"]').val(id);
         $('#myModal').modal();

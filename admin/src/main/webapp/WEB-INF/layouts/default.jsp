@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://www.opensymphony.com/sitemesh/decorator" prefix="decorator" %>
 <%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -67,8 +68,12 @@
     <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
             <ul class="nav nav-sidebar">
-                <li id="user-li"><a href="${basePath}user/list">用户管理</a></li>
-                <li id="picture-li"><a href="${basePath}picture/list">图片管理</a></li>
+                <li id="user-li" <c:if test="${menu=='user'}">class="active"</c:if> >
+                    <a href="${basePath}user/list">用户管理</a>
+                </li>
+                <li id="picture-li" <c:if test="${menu=='pic'}">class="active"</c:if> >
+                    <a href="${basePath}picture/list">图片管理</a>
+                </li>
             </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">

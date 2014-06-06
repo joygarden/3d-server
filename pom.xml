@@ -42,10 +42,10 @@
                 <log4j.level>INFO</log4j.level>
                 <log4j.path>/Users/shared/logs/info.log</log4j.path>
                 <file.save.path>/usr/local/tomcat/webapps/admin/static/upload/</file.save.path>
-                <url.prefix>http://ip:8080/admin/static/upload/</url.prefix>
-                <db.url>jdbc:mysql://ip:port/3d</db.url>
-                <db.username>username</db.username>
-                <db.password>password</db.password>
+                <url.prefix>http://115.28.45.114:8080/admin/static/upload/</url.prefix>
+                <db.url>jdbc:mysql://115.29.44.202:3306/3d</db.url>
+                <db.username>root</db.username>
+                <db.password>gysm123</db.password>
             </properties>
         </profile>
         <profile>
