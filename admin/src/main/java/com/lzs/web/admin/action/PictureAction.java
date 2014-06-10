@@ -30,7 +30,7 @@ public class PictureAction {
 
     @RequestMapping(value = "list", method = RequestMethod.GET)
     public String list(Page page, String keyword, Model model) {
-        Page<Picture> result = pictureService.listPicture(page, keyword, null);
+        Page<Picture> result = pictureService.listPicture(page, keyword, null,null);
         model.addAttribute("page", result);
         return "picture/list";
     }

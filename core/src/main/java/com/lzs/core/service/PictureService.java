@@ -1,5 +1,6 @@
 package com.lzs.core.service;
 
+import com.lzs.core.entity.Album;
 import com.lzs.core.entity.Picture;
 import com.lzs.core.entity.User;
 import com.lzs.core.support.BaseService;
@@ -33,6 +34,8 @@ public class PictureService extends BaseService<Picture> {
     public void addPicture(Picture picture) {
         User user = find(User.class, picture.getUser().getId());
         picture.setUser(user);
+        Album album = find(Album.class,picture.getAlbum().getId());
+        picture.setAlbum(album);
         addObject(picture);
     }
 
@@ -42,7 +45,7 @@ public class PictureService extends BaseService<Picture> {
      *
      * @param file
      * @return
-     * @throws IOException
+     * @throws java.io.IOException
      */
     public String writeFile(MultipartFile file) throws IOException {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
@@ -58,7 +61,7 @@ public class PictureService extends BaseService<Picture> {
      *
      * @return
      */
-    public Page<Picture> listPicture(Page page, String title, Long userId) {
+    public Page<Picture> listPicture(Page page, String title, Long userId, Long albumId) {
         String jql = "from Picture p where p.deleted=0 ";
         Map<String, Object> param = new HashMap<String, Object>();
         if (StringUtils.isNotBlank(title)) {
@@ -68,6 +71,10 @@ public class PictureService extends BaseService<Picture> {
         if (userId != null) {
             jql += "and p.user.id=:uid ";
             param.put("uid", userId);
+        }
+        if(albumId != null) {
+            jql += "and p.album.id=:aid ";
+            param.put("aid",albumId);
         }
         jql += "order by createDate desc";
         Page<Picture> result = pagedQuery(jql, page, param);

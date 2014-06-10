@@ -1,5 +1,6 @@
 package com.lzs.mobile.rest.action;
 
+import com.lzs.core.entity.Album;
 import com.lzs.core.entity.Picture;
 import com.lzs.core.entity.User;
 import com.lzs.core.service.PictureService;
@@ -43,6 +44,9 @@ public class PictureAction extends BaseAction {
             User user = new User();
             user.setId(req.getUserId());
             picture.setUser(user);
+            Album album = new Album();
+            album.setId(req.getAlbumId());
+            picture.setAlbum(album);
             picture.setFile(req.getPicData());
             picture.setTitle(req.getTitle());
             pictureService.addPicture(picture);
@@ -67,7 +71,7 @@ public class PictureAction extends BaseAction {
         Page page = new Page();
         page.setPageNo(req.getPageNo());
         page.setPageSize(req.getPageSize());
-        List<Picture> list = pictureService.listPicture(page, null, req.getUserId()).getData();
+        List<Picture> list = pictureService.listPicture(page, null, req.getUserId(),req.getAlbumId()).getData();
         List<PicDetailResp> resp = new ArrayList<PicDetailResp>();
         for (Picture pic : list) {
             PicDetailResp dt = new PicDetailResp();

@@ -1,20 +1,16 @@
 package com.lzs.mobile.rest.req;
 
 /**
- * Description Add Comment Here <br/>
- * Date 2014/05/30 15:16 <br/>
+ * Created on 6/11/14.
  *
- * @author liaozhisong
- * @version V1.0
+ * @author liaozhisong.
  */
-public class PicListReq {
+public class AlbumListReq {
     private int pageSize = 20;
 
     private int pageNo = 1;
 
     private Long userId;
-
-    private Long albumId;
 
     public int getPageSize() {
         return pageSize;
@@ -38,13 +34,5 @@ public class PicListReq {
 
     public void setUserId(Long userId) {
         this.userId = userId;
-    }
-
-    public Long getAlbumId() {
-        return albumId;
-    }
-
-    public void setAlbumId(Long albumId) {
-        this.albumId = albumId;
     }
 }

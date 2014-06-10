@@ -17,6 +17,7 @@ public class Picture extends BaseEntity {
     private User user;
     private String title;
     private String url;
+    private Album album;
 
     private MultipartFile file;
 
@@ -49,6 +50,16 @@ public class Picture extends BaseEntity {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "album_id")
+    public Album getAlbum() {
+        return album;
+    }
+
+    public void setAlbum(Album album) {
+        this.album = album;
     }
 
     @Transient

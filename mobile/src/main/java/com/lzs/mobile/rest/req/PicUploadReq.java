@@ -12,7 +12,16 @@ import org.springframework.web.multipart.MultipartFile;
 public class PicUploadReq {
     private Long userId;
     private String title;
+    private Long albumId;
     private MultipartFile picData;
+
+    public Long getAlbumId() {
+        return albumId;
+    }
+
+    public void setAlbumId(Long albumId) {
+        this.albumId = albumId;
+    }
 
     public Long getUserId() {
         return userId;
