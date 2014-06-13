@@ -62,6 +62,7 @@ public class UserAction extends BaseAction {
     public String register(User user) {
         user.setRoles("user");
         userService.addUser(user);
+        logger.info("register user is:"+user.getUsername());
         SecurityUtils.getSubject().logout();
         return "redirect:login";
     }

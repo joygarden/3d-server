@@ -82,7 +82,7 @@ public class AlbumAction extends BaseAction {
             Page page = new Page();
             page.setPageNo(req.getPageNo());
             page.setPageSize(req.getPageSize());
-            Page<Album> albumPage = albumService.listAlbum(page,null);
+            Page<Album> albumPage = albumService.listAlbum(page,null,req.getUserId());
             List<AlbumResp> respList = new ArrayList<AlbumResp>();
             for(Album a : albumPage.getData()) {
                 AlbumResp resp = new AlbumResp();

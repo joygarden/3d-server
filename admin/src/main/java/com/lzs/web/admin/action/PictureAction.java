@@ -3,6 +3,7 @@ package com.lzs.web.admin.action;
 import com.lzs.core.entity.Picture;
 import com.lzs.core.entity.User;
 import com.lzs.core.service.PictureService;
+import com.lzs.core.support.BaseAction;
 import com.lzs.core.support.Page;
 import com.lzs.core.support.ShiroDbRealm;
 import org.apache.shiro.SecurityUtils;
@@ -23,7 +24,7 @@ import java.io.IOException;
  */
 @Controller
 @RequestMapping("/picture")
-public class PictureAction {
+public class PictureAction extends BaseAction {
 
     @Autowired
     private PictureService pictureService;
@@ -42,6 +43,7 @@ public class PictureAction {
 
     @RequestMapping(value = "upload", method = RequestMethod.POST)
     public String upload(Picture picture) throws IOException {
+        logger.info(picture.getTitle());
         String url = pictureService.writeFile(picture.getFile());
         picture.setUrl(url);
         ShiroDbRealm.ShiroUser shiroUser = (ShiroDbRealm.ShiroUser) SecurityUtils.getSubject().getPrincipal();

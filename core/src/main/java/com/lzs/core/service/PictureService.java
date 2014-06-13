@@ -36,6 +36,7 @@ public class PictureService extends BaseService<Picture> {
         picture.setUser(user);
         Album album = find(Album.class,picture.getAlbum().getId());
         picture.setAlbum(album);
+        logger.info("picture title:"+picture.getTitle());
         addObject(picture);
     }
 
