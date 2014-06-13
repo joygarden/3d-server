@@ -39,4 +39,11 @@ public class UserService extends BaseService<User> {
         jql += "order by id";
         return pagedQuery(jql, page, param);
     }
+
+    public void delUser(Long id) {
+        User user = findById(id);
+        user.setDeleted(1);
+        updateObject(user);
+    }
+
 }

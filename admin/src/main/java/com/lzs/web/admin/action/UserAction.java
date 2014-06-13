@@ -44,7 +44,7 @@ public class UserAction extends BaseAction {
 
     @RequestMapping(value = "del", method = RequestMethod.POST)
     public String del(Long id) {
-        userService.deleteObjectById(id);
+        userService.delUser(id);
         return "redirect:list";
     }
 
